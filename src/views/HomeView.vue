@@ -1,18 +1,25 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <LoadingComponent />
+  <div :style="backgroundStyle">
+    <NavCv />
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+<script setup>
+import NavCv from '@/components/NavCv.vue';
+import LoadingComponent from '@/components/LoadingComponent.vue';
+import mainBackground from '@/assets/mainBackground.jpg';
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld,
-  },
+const backgroundStyle = {
+  backgroundImage: `url(${mainBackground})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  backgroundAttachment: 'fixed',
+  height: '100vh',
+  width: '100vw',
 };
+
 </script>
+
+<style scoped>
+</style>
