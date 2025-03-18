@@ -1,82 +1,87 @@
 <template>
-    <div class="bg-[#040b11] navbar top-0 text-white relative z-10 shadow-lg">
-        <div class="max-w-[1440px] bg-[#040b11] mr-auto ml-auto
-        pr-[15px] pr-[15px] flex items-center justify-between flex-row">
+    <div class="sticky top-0 z-30">
+        <div class="bg-[#040b11] navbar top-0 text-white relative z-10 shadow-lg">
+            <div class="max-w-[1440px] bg-[#040b11] mr-auto ml-auto
+            pr-[15px] pr-[15px] flex items-center justify-between flex-row">
             <div class="text-white mr-[30px] w-[200px] cursor-pointer">
                 <img src="../assets/logoCV.png" class="" alt="">
             </div>
             <div class="flex">
                 <ul class="flex flex-row text-white items-center justify-center poppins navbar-ul">
                     <li class="py-[42px] pr-[36px] pl-0">
-                        <a href="">ABOUT</a>
+                        <a href="#" @click.prevent="scrollToSection('about')">ABOUT</a>
                     </li>
                     <li class="py-[42px] pr-[36px] pl-0">
-                        <a href="">ROAD MAP</a>
+                        <a href="#" @click.prevent="scrollToSection('roadmap')">ROAD MAP</a>
                     </li>
                     <li class="py-[42px] pr-[36px]">
-                        <a href="">PORTFOLIO</a>
+                        <a href="#" @click.prevent="scrollToSection('portfolio')">PORTFOLIO</a>
                     </li>
                     <li class="py-[42px] pr-[36px] pl-0">
-                        <a href="">CONTACT</a>
+                        <a href="#" @click.prevent="scrollToSection('contact')">CONTACT</a>
                     </li>
                 </ul>
             </div>
             <div class="flex gap-5 poppins">
                 <a href="#" aria-label="Toggle Theme" class="w-[48px] h-[48px] flex
                 items-center justify-center bg-[#141b22] rounded-[50%]">
-                    <img src="https://binaboxnextjs.vercel.app/assets/images/icon/sun.png" alt="">
+                <img src="https://binaboxnextjs.vercel.app/assets/images/icon/sun.png" alt="">
                 </a>
                 <a href="https://discord.gg/kqUzqrW8Md"
                 target="_blank" rel="noopener noreferrer"
                 aria-label="discord logo" class="py-[12px]
                 px-[20px] bg-[#141b22] inline-flex items-center tf-button
                 transition-all duration-300 ease close discord">
-                    <box-icon type='logo'
-                    name='discord-alt' color="white" class="mr-[10px]"></box-icon>
-                    <span>DISCORD</span>
-                </a>
-                <a href="https://github.com/tOCHSKa"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="discord logo" class="py-[12px]
-                px-[24px] bg-[#21E786] hover:bg-[#141b22]
-                border-[2px] border-[#21E786]
-                inline-flex items-center github
-                transition-all duration-300 ease">
-                    <box-icon type='logo' name='github' color="white" class="mr-[10px]"></box-icon>
-                    <span>GITHUB</span>
-                </a>
-                <div class="flex items-center justify-center burger cursor-pointer
-                transition-all duration-300 ease"
-                @click="toggleIsClicked" @keydown="toggleIsClicked" tabindex="0">
-                    <Icon v-if="!isClicked"
-                    icon="ic:round-menu"
-                     width="36" height="36" style="color: #fff" />
-                    <Icon v-else
-                    icon="akar-icons:cross" width="36" height="36" style="color: #fff" />
-                </div>
-            </div>
-        </div>
-        <div class="navslide absolute bg-[#141b22] w-full
+                <box-icon type='logo'
+                name='discord-alt' color="white" class="mr-[10px]"></box-icon>
+                <span>DISCORD</span>
+            </a>
+            <a href="https://github.com/tOCHSKa"
+            target="_blank" rel="noopener noreferrer"
+            aria-label="discord logo" class="py-[12px]
+            px-[24px] bg-[#21E786] hover:bg-[#141b22]
+            border-[2px] border-[#21E786]
+            inline-flex items-center github
+            transition-all duration-300 ease">
+            <box-icon type='logo' name='github' color="white" class="mr-[10px]"></box-icon>
+            <span>GITHUB</span>
+        </a>
+        <div class="flex items-center justify-center burger cursor-pointer
+        transition-all duration-300 ease"
+        @click="toggleIsClicked" @keydown="toggleIsClicked" tabindex="0">
+        <Icon v-if="!isClicked"
+        icon="ic:round-menu"
+        width="36" height="36" style="color: #fff" />
+        <Icon v-else
+        icon="akar-icons:cross" width="36" height="36" style="color: #fff" />
+    </div>
+</div>
+</div>
+<div class="navslide absolute bg-[#141b22] w-full
         transition-all duration-300 ease"
         :class="{ active: isClicked }">
             <div v-for="(item, index) in menuItems" :key="index"
-            class="flex items-center justify-between
+            class="flex items-center justify-between cursor-pointer
             p-3 border-b border-white/30 hover:text-[#21E786]"
             @mouseenter="hoveredIndex = index"
             @mouseleave="hoveredIndex = null"
             @focus="hoveredIndex = index"
             @blur="hoveredIndex = index"
+            @click.prevent="scrollToSection(item.url)"
+            @keydown="scrollToSection(item.url)"
             >
-                <a :href="item.url"
-                class="text-white poppins hover:text-[#21E786]">{{ item.name }}</a>
-                <Icon :icon="item.icon"
-                width="20" height="20"
-                class="spin cursor-pointer"
-                :class="{ 'rotate-360': hoveredIndex === index }"
-                />
-            </div>
+            <a @click.prevent="scrollToSection(item.url)"
+            @keydown="scrollToSection(item.url)"
+            class="text-white poppins hover:text-[#21E786]">{{ item.name }}</a>
+            <Icon :icon="item.icon"
+            width="20" height="20"
+            class="spin cursor-pointer"
+            :class="{ 'rotate-360': hoveredIndex === index }"
+            />
         </div>
     </div>
+</div>
+</div>
 
 </template>
 <script setup>
@@ -94,11 +99,18 @@ const toggleIsClicked = () => {
 const hoveredIndex = ref(null);
 
 const menuItems = ref([
-  { name: 'ABOUT', icon: 'solar:arrow-right-linear', url: '#about' },
-  { name: 'ROAD MAP', icon: 'solar:arrow-right-linear', url: '#roadmap' },
-  { name: 'PORTFOLIO', icon: 'solar:arrow-right-linear', url: '#portfolio' },
-  { name: 'CONTACT', icon: 'solar:arrow-right-linear', url: '#contact' },
+  { name: 'ABOUT', icon: 'solar:arrow-right-linear', url: 'about' },
+  { name: 'ROAD MAP', icon: 'solar:arrow-right-linear', url: 'roadmap' },
+  { name: 'PORTFOLIO', icon: 'solar:arrow-right-linear', url: 'portfolio' },
+  { name: 'CONTACT', icon: 'solar:arrow-right-linear', url: 'contact' },
 ]);
+
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 </script>
 <style lang="scss" scoped>
