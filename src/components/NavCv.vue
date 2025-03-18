@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[#040b11] navbar text-white relative z-10">
+    <div class="bg-[#040b11] navbar top-0 text-white relative z-10 shadow-lg">
         <div class="max-w-[1440px] bg-[#040b11] mr-auto ml-auto
         pr-[15px] pr-[15px] flex items-center justify-between flex-row">
             <div class="text-white mr-[30px] w-[200px] cursor-pointer">
@@ -67,10 +67,11 @@
             @focus="hoveredIndex = index"
             @blur="hoveredIndex = index"
             >
-                <a href="#" class="text-white poppins hover:text-[#21E786]">{{ item.name }}</a>
+                <a :href="item.url"
+                class="text-white poppins hover:text-[#21E786]">{{ item.name }}</a>
                 <Icon :icon="item.icon"
                 width="20" height="20"
-                class="spin"
+                class="spin cursor-pointer"
                 :class="{ 'rotate-360': hoveredIndex === index }"
                 />
             </div>
@@ -93,10 +94,10 @@ const toggleIsClicked = () => {
 const hoveredIndex = ref(null);
 
 const menuItems = ref([
-  { name: 'ABOUT', icon: 'solar:arrow-right-linear' },
-  { name: 'ROAD MAP', icon: 'solar:arrow-right-linear' },
-  { name: 'PORTFOLIO', icon: 'solar:arrow-right-linear' },
-  { name: 'CONTACT', icon: 'solar:arrow-right-linear' },
+  { name: 'ABOUT', icon: 'solar:arrow-right-linear', url: '#about' },
+  { name: 'ROAD MAP', icon: 'solar:arrow-right-linear', url: '#roadmap' },
+  { name: 'PORTFOLIO', icon: 'solar:arrow-right-linear', url: '#portfolio' },
+  { name: 'CONTACT', icon: 'solar:arrow-right-linear', url: '#contact' },
 ]);
 
 </script>
@@ -202,4 +203,19 @@ ul>li>a:hover::before {
     transition: transform 0.3s ease-in-out;
   }
 
+  @keyframes navBarShow {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.navbar {
+    transform: translateY(-100%);
+    animation: navBarShow 0.3s ease;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute top-0 left-0 w-full h-full z-20 flex animated-show">
+    <div class="absolute top-0 left-0 w-full h-full z-20 flex animated-show overflow-hidden">
         <div class="bg-[#000] w-full h-full animated-width-left "></div>
         <div class="bg-[#000] w-full h-full animated-width-right "></div>
         <div class="absolute h-[50px] w-[1px] border-[1px]
@@ -48,9 +48,6 @@
     0% {
       transform: translateX(-0);
     }
-    30% {
-        transform: translateX(-60%);
-    }
     100% {
         transform: translateX(-100%);
     }
@@ -64,9 +61,6 @@
 @keyframes growWidth-right {
     0% {
       transform: translateX(-0);
-    }
-    30% {
-        transform: translateX(60%);
     }
     100% {
         transform: translateX(100%);
