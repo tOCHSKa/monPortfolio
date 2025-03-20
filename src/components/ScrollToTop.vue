@@ -4,8 +4,8 @@
             <a @click.prevent="scrollToSection('top')"
             @keydown.enter.prevent="scrollToSection('top')"
              class="arrow-pos" aria-label="top">
-                <Icon icon="material-symbols:keyboard-double-arrow-up-rounded"
-                 width="50" height="50" style="color: #FFF"/>
+              <Icon icon="solar:alt-arrow-up-line-duotone"
+              width="30" height="30"  style="color: #fff" />
             </a>
         </div>
     </div>
@@ -41,7 +41,7 @@ onUnmounted(() => {
 
 .scrollToTop {
     position: fixed;
-    bottom: 80px;
+    bottom: 70px;
     right: 20px;
     border: 1px solid var(--bgPink);
     border-radius: 5px;
@@ -52,11 +52,17 @@ onUnmounted(() => {
     justify-content: center;
     align-items: center;
     z-index: 2200;
+    transition: all 0.3s ease;
 
     .arrow {
         position: absolute;
-        animation: bounce 1s infinite ease-in-out;
         top: 10%;
+        background-color: #21E786;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
     }
 
   }
@@ -74,4 +80,7 @@ onUnmounted(() => {
         display: none;
     }
   }
+.scrollToTop:hover {
+  transform: translateY(-5PX);
+}
 </style>

@@ -390,7 +390,7 @@ onMounted(() => {
 }
 @media (max-width: 1000px) {
   .content {
-    padding-top: 100px;
+    padding-top: 150px;
   }
 }
 
