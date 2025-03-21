@@ -113,6 +113,7 @@ onMounted(() => {
     padding: 0px 20px;
     position: relative;
     clear: both;
+    padding-top: 150px;
 }
 
 .content {
@@ -376,7 +377,7 @@ onMounted(() => {
 
 .show {
     animation: show 1s ease;
-    animation-delay: 3.5s;
+    animation-delay: 3.1s;
     animation-fill-mode: forwards;
 }
 

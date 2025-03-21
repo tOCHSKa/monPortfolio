@@ -14,15 +14,15 @@
                 </div>
                 <div class="flex justify-center wrapped max-w-[1440px] z-10 mt-[30px]">
                     <div v-for="(item, index) in aboutSkill" :key="index">
-                        <div class=" w-[322px] pr-[15px] pl-[15px] cursor-pointer"
+                        <div class=" w-[322px] pr-[15px] pl-[15px] cursor-pointer relative"
                          :class="item.index"
                          @mouseenter="toggleOpacity(item)"
                          @focus="toggleOpacity(item)">
                             <div class="bg-[#141b22] text-center mb-[30px] relative shadow-none
-                            pt-[76px] pr-[30px] pb-[30px] pl-[30px] box shadow">
+                            pt-[76px] pr-[30px] pb-[30px] pl-[30px] box shadow cornertopr">
                             <div class="relative mb-[18px]">
                                 <div class="absolute top-[-65px] left-[50%] bakbak
-                                text-[#21e786] opacity-[0.3] translate-x-[-50%] text-[80px]"
+                                text-[#21e786] translate-x-[-50%] text-[80px]"
                                 :class="item.index">
                                 {{ item.number}}</div>
                                 <h3 class="relative bakbak text-[24px] text-[#fff]
@@ -78,9 +78,11 @@ const toggleOpacity = ({ index }) => {
 
   id1.addEventListener('mouseover', () => {
     id1.children[0].children[0].children[0].classList.add('opacity-100');
+    id1.children[0].children[0].children[0].classList.remove('opacity-[0.3]');
   });
   id1.addEventListener('mouseleave', () => {
     id1.children[0].children[0].children[0]?.classList.remove('opacity-100');
+    id1.children[0].children[0].children[0].classList.add('opacity-[0.3]');
   }, { once: true });
 };
 
@@ -119,4 +121,45 @@ const toggleOpacity = ({ index }) => {
 .shadow {
     box-shadow: 0 10px 25px rgba(71,92,133,.1);
 }
+
+.cornertopr::before {
+    transition: all .3s ease;
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    border-left: 5px solid #21e786;
+    border-top: 5px solid #21e786;
+}
+
+.cornertopr::before {
+    opacity: 0;
+}
+
+.cornertopr:hover::before {
+    opacity: 1;
+}
+
+.cornertopr::after {
+    transition: all .3s ease;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-right: 5px solid #21e786;
+    border-bottom: 5px solid #21e786;
+}
+
+.cornertopr::after {
+    opacity: 0;
+}
+
+.cornertopr:hover::after {
+    opacity: 1;
+}
+
 </style>

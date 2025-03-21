@@ -1,5 +1,5 @@
 <template>
-    <div class="sticky top-0 z-30">
+    <div class="fixed w-full top-0 z-30">
         <div class="bg-[#040b11] navbar top-0 text-white relative z-10 shadow-lg">
             <div class="max-w-[1440px] bg-[#040b11] mr-auto ml-auto
             pr-[15px] pr-[15px] flex items-center justify-between flex-row">
