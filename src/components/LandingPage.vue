@@ -389,11 +389,6 @@ onMounted(() => {
         transform: translateX(40px);
     }
 }
-@media (max-width: 1000px) {
-  .content {
-    padding-top: 150px;
-  }
-}
 
 @media (max-width:600px) {
   .title {

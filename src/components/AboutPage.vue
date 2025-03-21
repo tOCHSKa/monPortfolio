@@ -22,7 +22,7 @@
                             pt-[76px] pr-[30px] pb-[30px] pl-[30px] box shadow cornertopr">
                             <div class="relative mb-[18px]">
                                 <div class="absolute top-[-65px] left-[50%] bakbak
-                                text-[#21e786] translate-x-[-50%] text-[80px]"
+                                text-[#21e786] opacity-[0.3] translate-x-[-50%] text-[80px]"
                                 :class="item.index">
                                 {{ item.number}}</div>
                                 <h3 class="relative bakbak text-[24px] text-[#fff]
