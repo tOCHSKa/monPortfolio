@@ -15,7 +15,7 @@
                         <a href="#" @click.prevent="scrollToSection('roadmap')">ROAD MAP</a>
                     </li>
                     <li class="py-[42px] pr-[36px]">
-                        <a href="#" @click.prevent="scrollToSection('portfolio')">PORTFOLIO</a>
+                        <a href="#" @click.prevent="scrollToSection('portfolio')">PROJECT</a>
                     </li>
                     <li class="py-[42px] pr-[36px] pl-0">
                         <a href="#" @click.prevent="scrollToSection('contact')">CONTACT</a>

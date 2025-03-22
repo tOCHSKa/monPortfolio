@@ -9,10 +9,12 @@
   </section>
   <div v-if="isLoaded">
     <SectionDivider/>
-    <section id="about" class="h-[100vh] w-full bg-[#040B11] pt-[59px] pb-[71px]">
+    <section id="about" class="h-auto w-full bg-[#040B11] pt-[59px]">
       <AboutPage />
+      <ResumePage />
     </section>
-    <section id="roadmap" class="h-[100vh] w-full bg-[#040B11]">
+    <section id="roadmap" class="h-[100vh] w-full bg-[#fff]">
+      <!-- <TestCo /> -->
     </section>
     <section id="portfolio" class="h-[100vh] w-full bg-[#040B11]">
     </section>
@@ -33,6 +35,8 @@ import SectionDivider from '@/components/SectionDivider.vue';
 import ScrollToTop from '@/components/ScrollToTop.vue';
 import AboutPage from '@/components/AboutPage.vue';
 import { ref } from 'vue';
+// import TestCo from '@/components/TestCo.vue';
+import ResumePage from '@/components/ResumePage.vue';
 
 const backgroundStyle = {
   backgroundImage: `url(${mainBackground})`,
