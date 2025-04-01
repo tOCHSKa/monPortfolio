@@ -3,56 +3,67 @@
   <LoadingComponent />
   <NavCv />
   <section id="home" class="overflow-hidden">
-    <div :style="backgroundStyle">
+    <div :style="backgroundStyle" class="home">
       <LandingPage />
     </div>
   </section>
-  <div v-if="isLoaded">
-    <SectionDivider/>
-    <section id="about" class="h-auto w-full bg-[#040B11] pt-[59px]">
+  <div v-if="isLoaded" class="overflow-hidden">
+    <SectionDivider />
+    <section id="about" class="h-[100%] w-full bg-[#040B11] pt-[59px]">
       <AboutPage />
       <ResumePage />
     </section>
-    <section id="roadmap" class="h-[100vh] w-full bg-[#fff]">
-      <!-- <TestCo /> -->
+    <section id="project"
+     :style="backgroundStyleResume"
+    >
+      <ProjectPage class="pt-[50px]"/>
     </section>
-    <section id="portfolio" class="h-[100vh] w-full bg-[#040B11]">
-    </section>
-    <section id="contact" class="h-[100vh] w-full bg-[#040B11]">
-    </section>
+    <section id="contact" class="h-[100vh] w-full bg-[#040B11]"></section>
   </div>
-  <ScrollToTop/>
-  <!-- <TestParticles /> -->
+  <ScrollToTop />
 </template>
 
 <script setup>
-import NavCv from '@/components/NavCv.vue';
-import LoadingComponent from '@/components/LoadingComponent.vue';
-import mainBackground from '@/assets/mainBackground.jpg';
-import LandingPage from '@/components/LandingPage.vue';
-import SectionDivider from '@/components/SectionDivider.vue';
+/* eslint-disable */
+import NavCv from "@/components/NavCv.vue";
+import LoadingComponent from "@/components/LoadingComponent.vue";
+import mainBackground from "@/assets/mainBackground.jpg";
+import LandingPage from "@/components/LandingPage.vue";
+import SectionDivider from "@/components/SectionDivider.vue";
 // import TestParticles from '@/components/TestParticles.vue';
-import ScrollToTop from '@/components/ScrollToTop.vue';
-import AboutPage from '@/components/AboutPage.vue';
-import { ref } from 'vue';
+import ScrollToTop from "@/components/ScrollToTop.vue";
+import AboutPage from "@/components/AboutPage.vue";
+import { ref } from "vue";
 // import TestCo from '@/components/TestCo.vue';
-import ResumePage from '@/components/ResumePage.vue';
+import ResumePage from "@/components/ResumePage.vue";
+import ProjectPage from "@/components/ProjectPage.vue";
 
 const backgroundStyle = {
   backgroundImage: `url(${mainBackground})`,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  height: '100vh',
-  width: '100vw',
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "100vh",
+  width: "100vw",
+};
+const backgroundStyleResume = {
+  backgroundImage: `url(${mainBackground})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  height: "auto",
+  width: "100vw",
 };
 
 const isLoaded = ref(false);
 
 setTimeout(() => {
   isLoaded.value = true;
-}, '4000');
-
+}, "4000");
 </script>
 
 <style scoped>
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
