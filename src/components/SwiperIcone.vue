@@ -31,8 +31,8 @@
                 :virtualIndex="index"
                 class="custom-slide bg-white"
                 >
-                    <div class="shadow bg-[#141b22]">
-                        <div class="p-[20px]">
+                    <div class="shadow  bg-[#141b22] relative">
+                        <div class="p-[20px] cornertopr">
                             <div class="mb-[20px] overflow-hidden">
                                 <img :src="image.src" :alt="image.alt"
                                 class="w-full" />
@@ -119,5 +119,45 @@ const images = ref([
     overflow: hidden;
     transition: all 0.3s ease;
    }
+
+   .cornertopr::before {
+    transition: all 0.3s ease;
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    border-left: 5px solid #21e786;
+    border-top: 5px solid #21e786;
+  }
+  
+  .cornertopr::before {
+    opacity: 0;
+  }
+  
+  .cornertopr:hover::before {
+    opacity: 1;
+  }
+  
+  .cornertopr::after {
+    transition: all 0.3s ease;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-right: 5px solid #21e786;
+    border-bottom: 5px solid #21e786;
+  }
+  
+  .cornertopr::after {
+    opacity: 0;
+  }
+  
+  .cornertopr:hover::after {
+    opacity: 1;
+  }
 
   </style>

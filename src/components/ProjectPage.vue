@@ -40,21 +40,11 @@ const gridColumns = ref(defaultGrid);
 
 // Exemple de données pour les projets
 const projects = ref([
-  { title: "CHILL", image: "https://i.imgur.com/zfCSYlG.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
-  { title: "Macker prod", image: "https://i.imgur.com/UIqq3JH.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
-  { title: "Title", image: "https://i.imgur.com/zfCSYlG.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
+  { title: "CHILL VoD", image: "https://i.imgur.com/zfCSYlG.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
+  { title: "Macker prod", image: "https://i.imgur.com/UIqq3JH.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
+  { title: "Pixel AI Bot", image: "https://i.imgur.com/Y1SiZEU.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
 ]);
 
-// Fonction pour ajuster la grille au survol
-const setGridColumns = (index) => {
-  const columns = projects.value.map((_, i) => (i === index ? "2fr" : "1fr"));
-  gridColumns.value = columns.join(" ");
-};
-
-// Réinitialisation au départ du curseur
-const resetGridColumns = () => {
-  gridColumns.value = defaultGrid;
-};
 </script>
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
