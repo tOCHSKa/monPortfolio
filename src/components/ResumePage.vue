@@ -14,17 +14,16 @@
         </div>
         <div class="text">
           <p>
-            Avec
             <span class="text_gradient" :style="{ backgroundSize: `${bgSize}% 100%` }">
-              3 ans de </span
-            >développement , Je
+              Passionné et expérimenté</span
+            > , &#x200B; &#x200B; &#x200B; &#x200B; &#x200B; &#x200B;je développe
             <span class="text_gradient" :style="{ backgroundSize: `${bgSize1}% 100%` }"
-              >transforme</span
+              > des solutions qui allient</span
             >
-            des projets en utilisant ma
+            performance
             <span class="text_gradient" :style="{ backgroundSize: `${bgSize2}% 100%` }"
-              >creativité.</span
-            >
+              ></span
+            > design et innovation.
           </p>
           <div class="button_border">
             <a href="img/cv/1.jpg" download="">Download my resume</a>
@@ -90,7 +89,7 @@ onUnmounted(() => {
   align-items: center;
 }
 .experience {
-  width: 50%;
+  width: 40%;
   color: #fff;
 }
 .in {
@@ -127,7 +126,7 @@ h6 {
 }
 
 .text {
-  width: 50%;
+  width: 60%;
   padding: 0px 30px;
 }
 

@@ -7,7 +7,7 @@
       <LandingPage />
     </div>
   </section>
-  <div v-if="isLoaded" class="overflow-hidden">
+  <div v-if="isLoaded" class="overflow-hidden bg-[#040B11]">
     <SectionDivider />
     <section id="about" class="h-[100%] w-full bg-[#040B11] pt-[59px]">
       <AboutPage />
@@ -18,7 +18,10 @@
     >
       <ProjectPage class="pt-[50px]"/>
     </section>
-    <section id="contact" class="h-[100vh] w-full bg-[#040B11]"></section>
+    <section id="contact" class="h-auto w-full bg-[#040B11]">
+      <div class="h-[90px]"></div>
+      <BannerContact />
+    </section>
   </div>
   <ScrollToTop />
 </template>
@@ -37,6 +40,7 @@ import { ref } from "vue";
 // import TestCo from '@/components/TestCo.vue';
 import ResumePage from "@/components/ResumePage.vue";
 import ProjectPage from "@/components/ProjectPage.vue";
+import BannerContact from "@/components/BannerContact.vue";
 
 const backgroundStyle = {
   backgroundImage: `url(${mainBackground})`,

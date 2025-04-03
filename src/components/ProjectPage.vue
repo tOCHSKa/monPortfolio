@@ -13,6 +13,11 @@
         class="project"
         v-for="(project, index) in projects"
         :key="index"
+        data-aos="flip-right"
+        data-aos-duration="3000"
+        :data-aos-delay="index * 200"
+        data-aos-once="true"
+        data-aos-anchor-placement="top-bottom"
       >
         <div class="project-wrap">
           <div class="project-img" :style="{ backgroundImage: `url(${project.image})` }"></div>
@@ -23,16 +28,21 @@
         </div>
       </div>
     </div>
-    <div class="h-auto pb-[60px] mt-[60px] max-w-full overflow-hidden media">
+    <!-- <div class="h-auto pb-[60px] mt-[60px] max-w-full overflow-hidden media">
       <SwiperIcone class="mt-[30px]" />
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>
 /* eslint-disable */
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
 import SwiperIcone from './SwiperIcone.vue';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
+onMounted(() => {
+  AOS.init();
+});
 
 // Valeur par défaut
 const defaultGrid = "1fr 1fr 1fr";
@@ -72,8 +82,8 @@ const projects = ref([
 }
 .project {
   margin: 0px auto;
-  border: 1px solid rgba(43, 105, 251, 0.12);
-  box-shadow: rgba(33, 231, 134, 0.06) 0px 0px 1rem 1rem;
+  border: 1px solid rgba(33, 231, 134, 0.5);
+  box-shadow: rgba(33, 231, 134, 0.1) 0px 0px 1rem 1rem;
   position: relative;
 }
 
@@ -94,7 +104,7 @@ const projects = ref([
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
-  border: 1px solid rgba(33, 231, 134, 0.12);
+  border: 1px solid rgba(33, 231, 134, 0.5);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }

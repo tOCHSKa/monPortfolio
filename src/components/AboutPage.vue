@@ -2,21 +2,31 @@
   <div class="relative mr-auto ml-auto pr-[15px] pl-[15px] max-w-[1440px] overflow-hidden">
     <div>
       <div class="max-w-full">
-        <div class="absolute top-[24%] right-[12%] left-auto" v-html="star1"></div>
-        <div class="absolute top-[0%] left-[5%] z-0" v-html="star2"></div>
+        <div class="absolute top-[24%] right-[12%] left-auto" v-html="star1"
+        data-aos="zoom-out-up"
+        data-aos-duration="3000"></div>
+        <div class="absolute top-[0%] left-[5%] z-0" v-html="star2"
+        data-aos="zoom-out-up"
+        data-aos-duration="3000"></div>
         <div class="mb-[50px] max-w-[930px] my-0 mx-auto mt-[50px] z-10 relative text-center">
           <h2 class="text-[44px] leading-[56px] bakbak text-white mb-[30px] uppercase">à PROPOS</h2>
           <p class="text-[18px] leading-[28px] text-[#c2c3c5] poppins">
             {{ textAbout }}
           </p>
         </div>
-        <div class="flex justify-center wrapped max-w-[1440px] z-10 mt-[30px]">
+        <div class="flex justify-center wrapped max-w-[1440px] z-10 mt-[30px]"
+        >
           <div v-for="(item, index) in aboutSkill" :key="index">
             <div
               class="w-[322px] pr-[15px] pl-[15px] cursor-pointer relative"
               :class="item.index"
               @mouseenter="toggleOpacity(item)"
               @focus="toggleOpacity(item)"
+              data-aos="flip-right"
+              data-aos-duration="3000"
+              :data-aos-delay="index * 200"
+              data-aos-once="true"
+              data-aos-anchor-placement="center-bottom"
             >
               <div
                 class="bg-[#141b22] text-center mb-[30px]
@@ -48,36 +58,43 @@
 <script setup>
 /* eslint-disable */
 import { ref } from "vue";
+import { onMounted } from "vue";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+onMounted(() => {
+  AOS.init();
+});
 
 const star1 =
   '<svg width="208" height="208" viewBox="0 0 208 208" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_f_2337_5328)"><path d="M88.0594 196L88.0594 142.485L50.2119 180.333L27.6674 157.788L65.5149 119.941L12 119.941L12 88.0594L65.5149 88.0594L27.6674 50.2119L50.2119 27.6673L88.0594 65.5148L88.0594 12L119.941 12L119.941 65.5149L157.788 27.6673L180.333 50.2119L142.485 88.0594L196 88.0594L196 119.941L142.485 119.941L180.333 157.788L157.788 180.333L119.941 142.485L119.941 196L88.0594 196Z" fill="url(#paint0_linear_2337_5328)"></path></g><defs><filter id="filter0_f_2337_5328" x="0" y="0" width="208" height="208" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_2337_5328"></feGaussianBlur></filter><linearGradient id="paint0_linear_2337_5328" x1="196" y1="104" x2="12" y2="104" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1d2328"></stop><stop offset="1" stop-color="#1d2328" stop-opacity="0"></stop></linearGradient></defs></svg>';
 const star2 =
   '<svg width="302" height="302" viewBox="0 0 302 302" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_f_2337_5282)"><path d="M234.678 38.4808L198.329 110.138L274.714 85.1672L289.589 130.668L213.203 155.638L284.86 191.988L263.205 234.677L191.548 198.328L216.518 274.713L171.018 289.588L146.047 213.202L109.698 284.859L67.0084 263.204L103.358 191.547L26.9721 216.517L12.0979 171.017L88.4837 146.046L16.8268 109.697L38.4818 67.0074L110.139 103.357L85.1682 26.9711L130.669 12.0969L155.639 88.4827L191.989 16.8258L234.678 38.4808Z" fill="url(#paint0_linear_2337_5282)"></path></g><defs><filter id="filter0_f_2337_5282" x="0.0976562" y="0.0966797" width="301.49" height="301.491" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend><feGaussianBlur stdDeviation="6" result="effect1_foregroundBlur_2337_5282"></feGaussianBlur></filter><linearGradient id="paint0_linear_2337_5282" x1="27.6543" y1="88.352" x2="274.032" y2="213.333" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#1d2328"></stop><stop offset="1" stop-color="#1d2328" stop-opacity="0"></stop></linearGradient></defs></svg>';
 const textAbout =
-  "Avec plusieurs années d’expérience en développement web, j’ai affiné mon expertise pour concevoir des solutions performantes et innovantes. Mon objectif ? Transformer chaque idée en un projet concret, fonctionnel et impactant.";
+  "Passionné par le développement web, j’ai perfectionné mon expertise pour concevoir des solutions performantes et innovantes. Mon objectif ? Apporter à votre entreprise un développeur capable de livrer des projets robustes, optimisés et évolutifs. Je combine technologie, méthodologie agile et créativité pour proposer des solutions impactantes et adaptées aux enjeux actuels du marché.";
 const aboutSkill = ref([
   {
-    name: "EXPERTISE",
+    name: "Expertise ",
     number: "01",
-    text: "Chaque ligne de code est pensée pour la performance. Grâce à mon expertise sur Vue.js et Express, je conçois des applications réactives, optimisées et évolutives.",
+    text: "Je transforme les idées en solutions digitales innovantes, performantes et adaptées aux besoins du marché.",
     index: "index1",
   },
   {
-    name: "METHODIQUE",
+    name: "MÉTHODOLOGIE",
     number: "02",
-    text: "Planification rigoureuse, développement agile et amélioration continue : ma méthode garantit des livrables de qualité, adaptés aux attentes des utilisateurs.",
+    text: "Une approche rigoureuse, agile et organisée pour garantir des livrables de qualité dans les délais impartis.",
     index: "index2",
   },
   {
     name: "INNOVANT",
     number: "03",
-    text: "L’innovation est au cœur de mon approche. J’anticipe les évolutions technologiques pour imaginer des solutions performantes et pérennes.",
+    text: "Toujours à l’écoute des tendances, j’anticipe les évolutions pour concevoir des solutions modernes et durables.",
     index: "index3",
   },
   {
-    name: "CREATIF",
+    name: "UX/UI",
     number: "04",
-    text: "Un excellent design, c’est une expérience intuitive avant tout. Chaque détail est pensé pour offrir une navigation fluide, moderne et agréable à l’utilisateur.",
+    text: "Un design soigné et une navigation fluide pour offrir la meilleure expérience utilisateur possible.",
     index: "index4",
   },
 ]);

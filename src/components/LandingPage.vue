@@ -5,7 +5,7 @@
         <div class="content">
           <div class="left">
             <div class="hello">
-              <span class="hello"> Hello, World! </span>
+              <span class="hello"> Bienvenue sur mon Portfolio ! </span>
             </div>
             <div class="title">
               <h2>
@@ -15,7 +15,7 @@
               <h3>Developper</h3>
             </div>
             <div class="subtitle">
-              <p>With 3 yrs experience</p>
+              <p>Full Stack !</p>
             </div>
             <div class="buttons">
               <a
@@ -27,7 +27,7 @@
                  tf-button transition-all duration-300
                   ease close discord border-[2px]"
               >
-                <span>Say Hello</span>
+                <span>Contact</span>
               </a>
               <div class="tochbuttonsborder transition-all duration-300 ease">
                 <a
@@ -35,7 +35,7 @@
                   class="anchor text-[#fff] hover:text-white
                    bg-[#21E786] hover:bg-transparent transition-all duration-300 ease"
                   aria-label="myworks"
-                  >My Works</a
+                  >Projets</a
                 >
               </div>
             </div>
