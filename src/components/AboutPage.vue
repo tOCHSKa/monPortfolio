@@ -9,8 +9,14 @@
         data-aos="zoom-out-up"
         data-aos-duration="3000"></div>
         <div class="mb-[50px] max-w-[930px] my-0 mx-auto mt-[50px] z-10 relative text-center">
-          <h2 class="text-[44px] leading-[56px] bakbak text-white mb-[30px] uppercase">à PROPOS</h2>
-          <p class="text-[18px] leading-[28px] text-[#c2c3c5] poppins">
+          <h2  data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-once="true"
+          class="text-[44px] leading-[56px] bakbak text-white mb-[30px] uppercase">à PROPOS</h2>
+          <p  data-aos="fade-up"
+          data-aos-duration="2000"
+          data-aos-once="true"
+          class="text-[18px] leading-[28px] text-[#c2c3c5] poppins">
             {{ textAbout }}
           </p>
         </div>

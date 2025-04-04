@@ -3,7 +3,10 @@
     <div class="absolute w-full h-full top-0 left-0 bg opacity-[0.8]">
     </div>
     <div class="mb-[110px] text-center max-w-[930px] mx-auto pt-[60px] relative">
-      <h2 class="text-[44px] leading-[56px] bakbak text-white uppercase">PROJECTS</h2>
+      <h2 data-aos="fade-up"
+      data-aos-duration="2000"
+      data-aos-once="true"
+      class="text-[44px] leading-[56px] bakbak text-white uppercase">PROJECTS</h2>
     </div>
     <div
     class="project-grid"

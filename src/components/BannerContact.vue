@@ -4,7 +4,10 @@
       </div>
         <div class="tf-container"><div class="row">
             <div class="col-md-12">
-                <h2 class="page-title-heading bakbak">CONTACT</h2>
+                <h2 data-aos="fade-up"
+                data-aos-duration="1000"
+                data-aos-once="true"
+                class="page-title-heading bakbak">CONTACT</h2>
             </div>
         </div>
     </div>
@@ -96,12 +99,13 @@
 <script setup>
 /* eslint-disable */
 import { ref } from "vue";
+import emailjs from "@emailjs/browser";
 
 const form = ref({
   name: "",
   email: "",
   phone: "",
-  message: ""
+  message: "",
 });
 
 const errors = ref({});
@@ -117,8 +121,20 @@ const validateForm = () => {
 const submitForm = () => {
   validateForm();
   if (Object.keys(errors.value).length === 0) {
-    console.log("Formulaire soumis avec succès", form.value);
-    alert("Formulaire envoyé !");
+    emailjs
+    .send("service_y78050q", "template_zjgvled", { 
+      ...form.value // Déstructure directement l'objet
+    }, "rB9_BY8oMO1V87CS7")
+    .then(
+      () => {
+        console.log("Formulaire envoyé avec succès !");
+        alert("Votre message a été envoyé !");
+        form.value = { name: "", email: "", phone: "", message: "" }; // Réinitialise le formulaire
+      },
+      (error) => {
+        console.log("Erreur d'envoi :", error.text);
+      }
+    );
   }
 };
 </script>
@@ -127,7 +143,7 @@ const submitForm = () => {
 @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
 
 .tf-page-title {
-    padding: 90px 0;
+    padding: 50px 0;
     text-align: center;
     background: url('https://i.imgur.com/ahzdRpf.jpeg') no-repeat;
     background-size: 100%;
