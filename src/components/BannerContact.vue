@@ -88,6 +88,7 @@
       focus:outline-none focus:ring-2 focus:ring-[#21E786]" placeholder="Votre message"></textarea>
       <p v-if="errors.message" class="text-[#21E786] text-xs mt-1">{{ errors.message }}</p>
     </div>
+    <div id="recaptcha-container" class="flex mx-auto w-full justify-center mt-[15px]"></div>
     <button @click="submitForm" class="mt-[60px] bakbak font-bold
      mx-auto bg-transparent border-[3px] close transition-all ease-in
      flex border-[#21E786] p-4 border-solid">
@@ -98,7 +99,7 @@
 </template>
 <script setup>
 /* eslint-disable */
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import emailjs from "@emailjs/browser";
 
 const form = ref({
@@ -106,6 +107,7 @@ const form = ref({
   email: "",
   phone: "",
   message: "",
+  "g-recaptcha-response": "",
 });
 
 const errors = ref({});
@@ -118,23 +120,52 @@ const validateForm = () => {
   if (!form.value.message) errors.value.message = "Le message est requis";
 };
 
+const loadRecaptcha = () => {
+  if (window.grecaptcha) {
+    window.grecaptcha.render("recaptcha-container", {
+      sitekey: process.env.VUE_APP_RECAPTCHA_SITE_KEY,
+      callback: (token) => {
+        form.value["g-recaptcha-response"] = token;
+      },
+    });
+  } else {
+    console.error("reCAPTCHA non chargé");
+  }
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    loadRecaptcha();
+  }, 500);
+});
+
 const submitForm = () => {
   validateForm();
+  if (!form.value["g-recaptcha-response"]) {
+    alert("Veuillez valider le reCAPTCHA !");
+    return;
+  }
+
   if (Object.keys(errors.value).length === 0) {
     emailjs
-    .send("service_y78050q", "template_zjgvled", { 
-      ...form.value // Déstructure directement l'objet
-    }, "rB9_BY8oMO1V87CS7")
-    .then(
-      () => {
-        console.log("Formulaire envoyé avec succès !");
-        alert("Votre message a été envoyé !");
-        form.value = { name: "", email: "", phone: "", message: "" }; // Réinitialise le formulaire
-      },
-      (error) => {
-        console.log("Erreur d'envoi :", error.text);
-      }
-    );
+      .send(
+        "service_y78050q",
+        "template_zjgvled",
+        {
+          ...form.value,
+        },
+        "rB9_BY8oMO1V87CS7"
+      )
+      .then(
+        () => {
+          console.log("Formulaire envoyé avec succès !");
+          alert("Votre message a été envoyé !");
+          form.value = { name: "", email: "", phone: "", message: "", "g-recaptcha-response": "" };
+        },
+        (error) => {
+          console.log("Erreur d'envoi :", error.text);
+        }
+      );
   }
 };
 </script>
