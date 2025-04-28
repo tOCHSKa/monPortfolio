@@ -26,7 +26,7 @@
             > design et innovation.
           </p>
           <div class="button_border">
-            <a href="img/cv/1.jpg" download="">Download my resume</a>
+            <a href="UbedaKevinCV.pdf" download>Télécharger mon CV</a>
           </div>
         </div>
       </div>

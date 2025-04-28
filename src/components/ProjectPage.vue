@@ -13,7 +13,7 @@
     :style="{ gridTemplateColumns: gridColumns }"
     >
       <div
-        class="project"
+        class="project relative"
         v-for="(project, index) in projects"
         :key="index"
         data-aos="flip-right"
@@ -29,19 +29,33 @@
             <p class="project-paragraph">{{ project.description }}</p>
           </div>
         </div>
+        <div class="absolute top-[92%] left-[4%] text-white flex items-center gap-1">
+          <div v-if="project.github">
+            <a :href="project.github" aria-label="Lien du dépo" target="_blank">
+              <Icon icon="mdi:github" width="24" height="24" />
+            </a>
+          </div>
+          <div v-if="project.url">
+            <a :href="project.url" aria-label="Lien du site" target="_blank">
+              <Icon icon="tabler:world" width="24" height="24" />
+            </a>
+          </div>
+          <div v-if="project.youtube">
+            <a :href="project.youtube" aria-label="Lien de la vidéo" target="_blank">
+              <Icon icon="si:youtube-line" width="30" height="30" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- <div class="h-auto pb-[60px] mt-[60px] max-w-full overflow-hidden media">
-      <SwiperIcone class="mt-[30px]" />
-    </div> -->
   </div>
 </template>
 <script setup>
 /* eslint-disable */
 import { ref,onMounted } from 'vue';
-import SwiperIcone from './SwiperIcone.vue';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Icon } from "@iconify/vue";
 
 onMounted(() => {
   AOS.init();
@@ -53,9 +67,31 @@ const gridColumns = ref(defaultGrid);
 
 // Exemple de données pour les projets
 const projects = ref([
-  { title: "CHILL VoD", image: "https://i.imgur.com/zfCSYlG.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
-  { title: "Macker prod", image: "https://i.imgur.com/UIqq3JH.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
-  { title: "Pixel AI Bot", image: "https://i.imgur.com/Y1SiZEU.png", description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo similique, nostrum nesciunt recusandae temporibus voluptates ipsum error. Consequuntur atque ducimus vitae nam reiciendis nulla voluptas corrupti, in consequatur tempore quas"},
+  { title: "CHILL VoD",
+    github: "https://github.com/tOCHSKa/chillFront",
+    image: "https://i.imgur.com/zfCSYlG.png",
+    description: `Plateforme de streaming vidéo fictive développée avec Nuxt.js pour la partie frontend, Express.js pour l'API backend et RapidAPI pour l'intégration de contenus dynamiques.
+                  Ce projet simule le fonctionnement d'un service de VoD moderne avec une interface fluide, une navigation intuitive et une gestion sécurisée des contenus multimédias.
+                  L'objectif principal était de reproduire une expérience utilisateur similaire aux grandes plateformes, tout en assurant une performance optimale côté client et serveur.
+                  Ce projet m'a permis de renforcer mes compétences en développement, en gestion d'API tierces et en structuration d'applications Nuxt.`},
+  { title: "Macker prod",
+    github: "https://github.com/tOCHSKa/mackerStage",
+    url: "www.mackerprod.com",
+    youtube: "https://www.youtube.com/@MackerPROD",
+    image: "https://i.imgur.com/UIqq3JH.png",
+    description: `Macker Prod est un site portfolio professionnel dédié à la mise en valeur du travail d'un vidéaste et photographe.
+                  Développé avec Vue.js 3 pour la partie frontend et Express.js pour l'API, ce projet met en avant une galerie dynamique, un affichage optimisé des médias, ainsi qu'une expérience utilisateur fluide sur desktop et mobile.
+                  L'accent a été mis sur la performance, la qualité visuelle, ainsi que sur la simplicité de navigation afin de mettre les réalisations du créateur au premier plan.
+                  Ce projet m'a permis de travailler sur l'optimisation d'images, l'expérience utilisateur (UX) et le déploiement d'applications modernes.`},
+  { title: "Pixel AI Bot",
+    github: "https://github.com/tOCHSKa/pixelBot",
+    url: "",
+    youtube: "https://www.youtube.com/watch?v=Xn9nlPUkJZg&t=9s",
+    image: "https://i.imgur.com/Y1SiZEU.png",
+    description: `Pixel AI Bot est un projet d'exploration de l'automatisation avec Python, appliqué à World of Warcraft (WoW).
+                  L'objectif était de développer un script capable de détecter des éléments à l'écran et d'effectuer des actions automatiques grâce aux librairies PyAutoGUI et MSS.
+                  Ce projet m'a initié aux techniques de capture d'écran en temps réel, d'analyse pixel par pixel et d'automatisation de tâches dans un environnement graphique.
+                  Il m'a également permis de découvrir les bonnes pratiques liées à l'automatisation, à la détection d'événements visuels et à l'interaction avec des interfaces utilisateurs complexes.`},
 ]);
 
 </script>

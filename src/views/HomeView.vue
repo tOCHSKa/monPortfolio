@@ -57,7 +57,7 @@ const backgroundStyleResume = {
   width: "100vw",
 };
 
-const isLoaded = ref(false);
+const isLoaded = ref(true);
 
 setTimeout(() => {
   isLoaded.value = true;
