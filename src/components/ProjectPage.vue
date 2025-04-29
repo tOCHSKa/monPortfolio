@@ -76,7 +76,7 @@ const projects = ref([
                   Ce projet m'a permis de renforcer mes compétences en développement, en gestion d'API tierces et en structuration d'applications Nuxt.`},
   { title: "Macker prod",
     github: "https://github.com/tOCHSKa/mackerStage",
-    url: "www.mackerprod.com",
+    url: "https://www.mackerprod.com",
     youtube: "https://www.youtube.com/@MackerPROD",
     image: "https://i.imgur.com/UIqq3JH.png",
     description: `Macker Prod est un site portfolio professionnel dédié à la mise en valeur du travail d'un vidéaste et photographe.
