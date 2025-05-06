@@ -6,7 +6,7 @@
           <div class="in">
             <div class="inside">
               <h3 class="">
-                <span class="tm_counter rotate">3</span>
+                <span class="tm_counter rotate">4</span>
               </h3>
               <h6>Années<br />Experience</h6>
             </div>
