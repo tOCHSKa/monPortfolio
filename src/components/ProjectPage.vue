@@ -75,7 +75,7 @@ const projects = ref([
                   L'objectif principal était de reproduire une expérience utilisateur similaire aux grandes plateformes, tout en assurant une performance optimale côté client et serveur.
                   Ce projet m'a permis de renforcer mes compétences en développement, en gestion d'API tierces et en structuration d'applications Nuxt.`},
   { title: "Macker prod",
-    github: "https://github.com/tOCHSKa/mackerStage",
+    github: "https://github.com/tOCHSKa/mackerprodV2",
     url: "https://www.mackerprod.com",
     youtube: "https://www.youtube.com/@MackerPROD",
     image: "https://i.imgur.com/UIqq3JH.png",
