@@ -6,7 +6,7 @@
           <div class="in">
             <div class="inside">
               <h3 class="">
-                <span class="tm_counter rotate">4</span>
+                <span class="tm_counter rotate">2</span>
               </h3>
               <h6>Années<br />Experience</h6>
             </div>
@@ -26,7 +26,7 @@
             > design et innovation.
           </p>
           <div class="button_border">
-            <a href="KUbedaFR.pdf" download>Télécharger mon CV</a>
+            <a href="leCV.pdf" download>Télécharger mon CV</a>
           </div>
         </div>
       </div>
